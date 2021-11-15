@@ -1,17 +1,49 @@
 #!/usr/bin/env python3
 ############################################################################
-# Soubor:  main.py
-# Datum:
-# Autor:
+# Soubor:   main.py
+# Datum:    15/11/2021
+# Autor:    Ondrej Vilim
 ############################################################################
 from random import randint, choice
+import os
 
 ############################################################################
 
+print("""
+Zadeje volbu:
+1) Chcete pracovat se souborem?
+2) Chcete vygenerovat náhodný soubor?
+""")
+volba1=int(input("Zadejte číslo volby: "))
 
-def f():
-    return None
+if volba1==1:
+    soubor1=open(input("Zadejte cestu k pracovnímu souboru: "))
+    obsah=soubor1.read()
+    soubor2=open(input("Zadejte název výstupního souboru: "),"w")
+    print("""
+    Chcete:
+    1) Převést soubor na malá písmena
+    2) Nahradit znak jiným znakem
+    3) Statistiku jednotlivých znaků
+    """)
+    podvolba1=int(input("Zadejte číslo volby: "))
+    if podvolba1==1:
+        prepis=obsah.lower()
+        vystup=soubor2.write(prepis)
+    elif podvolba1==2:
+        zmenit=input("zadejte znak, který chcete změnit: ")
+    elif podvolba1==3:
+        
+    else:
+        print("Neplatná volba, ukončuji program!!!")
+        
 
 
-if __name__ == "__main__":
-    print(f())
+
+
+elif volba1==2:
+    pocet_slov=int(input("Zadejte počet slov pro vygenerovaný soubor: "))
+    print(pocet_slov)
+
+else:
+    print("Neplatná volba, ukončuji program!!!")
