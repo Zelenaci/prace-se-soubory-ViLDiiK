@@ -30,6 +30,10 @@ if volba1==1:
     if podvolba1==1:
         prepis=obsah.lower()
         vystup=soubor2.write(prepis)
+        print("""
+        Soubor se přepsal do cílového souboru.
+        Soubor je zapsán pouze malými písmeny.
+        """)
     elif podvolba1==2:
         zmenit=input("zadejte znak, který chcete změnit: ")
         print("Dodělat!!!")
