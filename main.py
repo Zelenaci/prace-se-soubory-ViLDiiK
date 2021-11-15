@@ -32,8 +32,9 @@ if volba1==1:
         vystup=soubor2.write(prepis)
     elif podvolba1==2:
         zmenit=input("zadejte znak, který chcete změnit: ")
+        print("Dodělat!!!")
     elif podvolba1==3:
-        
+        print("Dodělat!!!")
     else:
         print("Neplatná volba, ukončuji program!!!")
         
