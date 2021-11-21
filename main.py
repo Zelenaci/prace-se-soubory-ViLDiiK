@@ -18,10 +18,7 @@ Zadeje volbu:
 volba1=int(input("Zadejte číslo volby: "))
 
 if volba1==1:
-    soubor1=open(input("Zadejte cestu k pracovnímu souboru: "),"r")
-    obsah=soubor1.read()
-    soubor2=open(input("Zadejte název výstupního souboru: "),"w")
-    
+
     print("""
     Chcete:
     1) Převést soubor na malá písmena
@@ -32,6 +29,9 @@ if volba1==1:
     podvolba1=int(input("Zadejte číslo volby: "))
     
     if podvolba1==1:
+        soubor1=open(input("Zadejte cestu k pracovnímu souboru: "),"r")
+        obsah=soubor1.read()
+        soubor2=open(input("Zadejte název výstupního souboru: "),"w")
         prepis=obsah.lower()
         vystup=soubor2.write(prepis)
         print("""
@@ -40,16 +40,37 @@ if volba1==1:
         """)
     
     elif podvolba1==2:
+
+        soubor1=open(input("Zadejte cestu k pracovnímu souboru: "),"r")
+        obsah=soubor1.read()
+        soubor2=open(input("Zadejte název výstupního souboru: "),"w")
+        
         zmenit=input("zadejte znak, který chcete změnit: ")
         nahrada=input("zadejte znak, kterým chcete nahrazovat první znak: ")
-        done=obsah.replace(zmenit.lower(),nahrada.lower()).replace(zmenit.upper(),nahrada.upper()) #Aby nedošlo ke změně velikostí písmen, použil jsem .lower() a .upper()
-        vystup=soubor2.write(done)
+        if zmenit.isalpha() == true & nahrada.isalpha() == true:
+            done=obsah.replace(zmenit.lower(),nahrada.lower()).replace(zmenit.upper(),nahrada.upper()) #Aby nedošlo ke změně velikostí písmen, použil jsem .lower() a .upper()
+            vystup=soubor2.write(done)
+        
+        elif zmenit.isalpha() == true & nahrada.isalpha() == false:
+            done=obsah.replace(zmenit.lower(),nahrada).replace(zmenit.upper(),nahrada)
+            vystup=soubor2.write(done)
+        
+        else:
+            done=obsah.replace(zmenit,nahrada)
+            vystup=soubor2.write(done)
+
         print("Znak byl úspěšně nahrazen.")
     
     elif podvolba1==3:    
+        
+        soubor1 = input("Zadejte cestu k pracovnímu souboru: ")
+        obsah = open(soubor1,"r")
+        soubor2 = input("Zadejte cestu k výstupnímu souboru: ")
+
         pismena=dict()
+        
         while True:
-            znak = soubor1.read(1).upper()
+            znak = obsah.read(1).upper()
             if znak == '':
                 break
             elif znak in pismena.keys():
@@ -60,8 +81,7 @@ if volba1==1:
         nej = max(pismena.values())
         for znak in sorted(pismena.keys()):
             if znak.isalpha():
-                print('{1:8d}| {0} | {2}'.format(znak, pismena[znak], 50 * pismena[znak] // nej * '*'))
-
+                done=print('{1:8d}| {0} | {2}'.format(znak, pismena[znak], 50 * pismena[znak] // nej * '*'))
 
     else:
         print("Neplatná volba, ukončuji program!!!")
