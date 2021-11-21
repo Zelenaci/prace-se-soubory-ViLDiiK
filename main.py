@@ -8,7 +8,7 @@ from random import randint, choice
 import os
 
 ############################################################################
-
+a 
 print("""
 Zadeje volbu:
 1) Chcete pracovat se souborem?
