@@ -8,7 +8,7 @@ from random import randint, choice
 import os
 
 ############################################################################
-a 
+
 print("""
 Zadeje volbu:
 1) Chcete pracovat se souborem?
@@ -36,7 +36,10 @@ if volba1==1:
         """)
     elif podvolba1==2:
         zmenit=input("zadejte znak, který chcete změnit: ")
-        print("Dodělat!!!")
+        nahrada=input("zadejte znak, kterým chcete nahrazovat první znak: ")
+        done=obsah.replace(zmenit,nahrada).replace(zmenit.upper(),nahrada)
+        vystup=soubor2.write(done)
+        print("Znak byl úspěšně nahrazen.")
     elif podvolba1==3:
         print("Dodělat!!!")
     else:
