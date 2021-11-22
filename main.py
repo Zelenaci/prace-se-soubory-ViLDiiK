@@ -47,11 +47,12 @@ if volba1==1:
         
         zmenit=input("zadejte znak, který chcete změnit: ")
         nahrada=input("zadejte znak, kterým chcete nahrazovat první znak: ")
-        if zmenit.isalpha() == true & nahrada.isalpha() == true:
+        
+        if zmenit.isalpha() == True and nahrada.isalpha() == True:
             done=obsah.replace(zmenit.lower(),nahrada.lower()).replace(zmenit.upper(),nahrada.upper()) #Aby nedošlo ke změně velikostí písmen, použil jsem .lower() a .upper()
             vystup=soubor2.write(done)
         
-        elif zmenit.isalpha() == true & nahrada.isalpha() == false:
+        elif zmenit.isalpha() == True and nahrada.isalpha() == False:
             done=obsah.replace(zmenit.lower(),nahrada).replace(zmenit.upper(),nahrada)
             vystup=soubor2.write(done)
         
