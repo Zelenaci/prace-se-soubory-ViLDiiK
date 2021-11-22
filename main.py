@@ -76,8 +76,8 @@ if volba1==1:
         soubor1 = input("""
         Zadejte cestu k pracovnímu souboru: """)
         obsah = open(soubor1,"r")
-        soubor2 = input("""
-        Zadejte cestu k výstupnímu souboru: """)
+        soubor2 = open(input("""
+        Zadejte cestu k výstupnímu souboru: """),"w")
 
         pismena=dict()
         
@@ -93,7 +93,8 @@ if volba1==1:
         nej = max(pismena.values())
         for znak in sorted(pismena.keys()):
             if znak.isalpha():
-                print("{1:8d}| {0} | {2}".format(znak, pismena[znak], 50 * pismena[znak] // nej * '*'))
+                vystup=soubor2.write("""{1:8d}| {0} | {2}
+""".format(znak, pismena[znak], 50 * pismena[znak] // nej * '*'))
                 
 
     else:
